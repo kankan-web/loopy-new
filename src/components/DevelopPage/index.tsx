@@ -3,9 +3,23 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function DevelopPage({ lang, title }: { lang: string; title: string }) {
   const [progress, setProgress] = useState(0);
+  const { setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // 组件挂载后设置为黑暗模式
+  useEffect(() => {
+    setMounted(true);
+    setTheme('dark');
+
+    // 组件卸载时恢复之前的主题
+    return () => {
+      // 这里不需要操作，因为主题会由全局主题控制器管理
+    };
+  }, [setTheme]);
 
   // 模拟进度条加载
   useEffect(() => {
@@ -20,6 +34,11 @@ export default function DevelopPage({ lang, title }: { lang: string; title: stri
     }, 500);
     return () => clearInterval(interval);
   }, []);
+
+  // 如果组件尚未挂载，返回一个加载状态或空内容
+  if (!mounted) {
+    return <div className="min-h-[80vh] bg-gray-900"></div>;
+  }
 
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center p-6 relative bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
