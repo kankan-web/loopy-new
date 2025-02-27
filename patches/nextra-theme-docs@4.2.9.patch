@@ -1,12 +1,12 @@
 diff --git a/dist/components/navbar/index.js b/dist/components/navbar/index.js
-index 03425b6674f917cfc07f93a238e4af20f2960e88..5c0815dfc4a89413dff1770e21bae10517ba0db9 100644
+index 03425b6674f917cfc07f93a238e4af20f2960e88..6c2a2e0f94f13a7b13e74788f71087c61839b253 100644
 --- a/dist/components/navbar/index.js
 +++ b/dist/components/navbar/index.js
 @@ -13,6 +13,7 @@ const propsSchema = z.strictObject({
    logoLink: z.union([z.string(), z.boolean()]).default(true),
    logo: element,
    projectLink: z.string().optional(),
-+  ariaProjectLink: z.string().optional()
++  ariaProjectLink: z.string().optional(),
    projectIcon: element.default(/* @__PURE__ */ jsx(GitHubIcon, { height: "24" })),
    chatLink: z.string().optional(),
    chatIcon: element.default(/* @__PURE__ */ jsx(DiscordIcon, { width: "24" })),
