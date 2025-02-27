@@ -97,5 +97,10 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "nextra-theme-docs@4.2.9": "patches/nextra-theme-docs@4.2.9.patch"
+    }
   }
 }

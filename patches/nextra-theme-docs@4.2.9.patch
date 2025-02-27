@@ -1,0 +1,21 @@
+diff --git a/dist/components/navbar/index.js b/dist/components/navbar/index.js
+index 03425b6674f917cfc07f93a238e4af20f2960e88..5c0815dfc4a89413dff1770e21bae10517ba0db9 100644
+--- a/dist/components/navbar/index.js
++++ b/dist/components/navbar/index.js
+@@ -13,6 +13,7 @@ const propsSchema = z.strictObject({
+   logoLink: z.union([z.string(), z.boolean()]).default(true),
+   logo: element,
+   projectLink: z.string().optional(),
++  ariaProjectLink: z.string().optional()
+   projectIcon: element.default(/* @__PURE__ */ jsx(GitHubIcon, { height: "24" })),
+   chatLink: z.string().optional(),
+   chatIcon: element.default(/* @__PURE__ */ jsx(DiscordIcon, { width: "24" })),
+@@ -107,7 +108,7 @@ const Navbar = (props) => {
+   }
+   let t5;
+   if ($[18] !== projectIcon || $[19] !== projectLink) {
+-    t5 = projectLink && /* @__PURE__ */ jsx(Anchor, { href: projectLink, children: projectIcon });
++    t5 = projectLink && /* @__PURE__ */ jsx(Anchor, { href: projectLink,ariaLink:ariaProjectLink,children: projectIcon });
+     $[18] = projectIcon;
+     $[19] = projectLink;
+     $[20] = t5;

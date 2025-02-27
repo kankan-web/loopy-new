@@ -27,11 +27,14 @@ export default function DevelopPage({ lang, title }: { lang: string; title: stri
       setProgress((prev) => {
         if (prev >= 90) {
           clearInterval(interval);
+
           return 90;
         }
+
         return prev + Math.random() * 10;
       });
     }, 500);
+
     return () => clearInterval(interval);
   }, []);
 
